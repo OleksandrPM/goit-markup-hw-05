@@ -11,6 +11,9 @@
 
   --page-width: 1600px;
   --container-width: 1200px;
+
+  --normal-transition-duration: 250ms;
+  --normal-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p {
@@ -101,6 +104,11 @@ svg {
   cursor: pointer;
 }
 
+.transition {
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
+}
+
 /* Header */
 .pages-head {
   margin-left: auto;
@@ -136,6 +144,8 @@ svg {
   letter-spacing: 0.02em;
 
   color: var(--titles-color);
+
+  transition-property: color;
 }
 
 .site-nav .link:hover,
@@ -170,7 +180,7 @@ svg {
   color: var(--brand-color);
 }
 
-.link.current::before {
+.link.current::after {
   --width-difference: 10px;
 
   position: absolute;
@@ -206,6 +216,13 @@ svg {
   letter-spacing: 0.02em;
 
   color: var(--main-text-color);
+
+  transition-property: color;
+}
+
+.contact-list .link:hover,
+.contact-list .link:focus {
+  color: var(--brand-color);
 }
 
 .mail-icon,
@@ -213,11 +230,6 @@ svg {
   margin-right: 10px;
 
   fill: currentColor;
-}
-
-.contact-list .link:hover,
-.contact-list .link:focus {
-  color: var(--brand-color);
 }
 
 /* Main in index.html*/
@@ -274,6 +286,8 @@ svg {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: none;
+
+  transition-property: background-color;
 }
 
 .hero .button:hover,
@@ -425,6 +439,8 @@ svg {
   color: #afb1b8;
 
   border-radius: 50%;
+
+  transition-property: color, background-color;
 }
 
 .socials .link:hover,
@@ -454,16 +470,18 @@ svg {
 
   border: 1px solid #afb1b8;
   border-radius: 4px;
-}
 
-.client-link .icon {
-  fill: currentColor;
+  transition-property: color, border-color;
 }
 
 .client-link:hover,
 .client-link:focus {
   color: var(--brand-color);
   border-color: var(--brand-color);
+}
+
+.client-link .icon {
+  fill: currentColor;
 }
 
 /* Footer */
@@ -499,6 +517,8 @@ svg {
   letter-spacing: 0.03em;
 
   color: var(--clear-white-color);
+
+  transition-property: color;
 }
 
 .post-address:hover,
@@ -534,6 +554,71 @@ svg {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Modal wind */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: var(--clear-white-color);
+
+  opacity: 1;
+  transition-property: transform, opacity;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, 0);
+  opacity: 0;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: var(--clear-white-color);
+
+  transition-property: fill, background-color;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  fill: var(--clear-white-color);
+  background-color: var(--brand-color);
+}
+
 /* Main in portfolio.html */
 /* Portfolio section */
 .sort-list {
@@ -563,6 +648,8 @@ svg {
 
   border-radius: 4px;
   border-style: hidden;
+
+  transition-property: color, background-color, box-shadow;
 }
 
 .sort-list .button:hover,
@@ -589,11 +676,40 @@ svg {
   width: calc((100% - 60px) / 3);
 
   background-color: var(--clear-white-color);
+
+  transition-property: box-shadow;
 }
 
 .portfolio-list > li:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-thumb {
+  position: relative;
+
+  overflow: hidden;
+
+  transition-property: top;
+}
+
+.portfolio-thumb > p {
+  position: absolute;
+  top: 100%;
+
+  height: 100%;
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.56;
+
+  letter-spacing: 0.03em;
+  color: var(--clear-white-color);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.portfolio-list > li:hover .portfolio-thumb > p {
+  top: 0;
 }
 
 .card-description {
