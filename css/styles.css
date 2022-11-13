@@ -12,7 +12,7 @@
   --page-width: 1600px;
   --container-width: 1200px;
 
-  --normal-transition-duration: 250ms;
+  --normal-transition-duration: 3s;
   --normal-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -104,10 +104,10 @@ svg {
   cursor: pointer;
 }
 
-.transition {
+/* .transition-element {
   transition-duration: var(--normal-transition-duration);
   transition-timing-function: var(--normal-transition-timing-function);
-}
+} */
 
 /* Header */
 .pages-head {
@@ -145,6 +145,8 @@ svg {
 
   color: var(--titles-color);
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: color;
 }
 
@@ -217,6 +219,8 @@ svg {
 
   color: var(--main-text-color);
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: color;
 }
 
@@ -287,6 +291,8 @@ svg {
   border-radius: 4px;
   border: none;
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: background-color;
 }
 
@@ -440,6 +446,8 @@ svg {
 
   border-radius: 50%;
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: color, background-color;
 }
 
@@ -471,6 +479,8 @@ svg {
   border: 1px solid #afb1b8;
   border-radius: 4px;
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: color, border-color;
 }
 
@@ -518,6 +528,8 @@ svg {
 
   color: var(--clear-white-color);
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: color;
 }
 
@@ -563,6 +575,10 @@ svg {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
+
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
+  transition-property: visibility, opacity;
 }
 
 .backdrop.is-hidden {
@@ -586,6 +602,9 @@ svg {
   background-color: var(--clear-white-color);
 
   opacity: 1;
+
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: transform, opacity;
 }
 
@@ -610,6 +629,8 @@ svg {
   border-radius: 50%;
   background-color: var(--clear-white-color);
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: fill, background-color;
 }
 
@@ -649,6 +670,8 @@ svg {
   border-radius: 4px;
   border-style: hidden;
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: color, background-color, box-shadow;
 }
 
@@ -677,10 +700,13 @@ svg {
 
   background-color: var(--clear-white-color);
 
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
   transition-property: box-shadow;
 }
 
-.portfolio-list > li:hover {
+.portfolio-list > li:hover,
+.portfolio-list > li:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -689,8 +715,6 @@ svg {
   position: relative;
 
   overflow: hidden;
-
-  transition-property: top;
 }
 
 .portfolio-thumb > p {
@@ -706,6 +730,10 @@ svg {
   letter-spacing: 0.03em;
   color: var(--clear-white-color);
   background-color: rgba(33, 150, 243, 0.9);
+
+  transition-duration: var(--normal-transition-duration);
+  transition-timing-function: var(--normal-transition-timing-function);
+  transition-property: top;
 }
 
 .portfolio-list > li:hover .portfolio-thumb > p {
