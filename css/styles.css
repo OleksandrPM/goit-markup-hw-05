@@ -104,11 +104,6 @@ svg {
   cursor: pointer;
 }
 
-/* .transition-element {
-  transition-duration: var(--normal-transition-duration);
-  transition-timing-function: var(--normal-transition-timing-function);
-} */
-
 /* Header */
 .pages-head {
   margin-left: auto;
